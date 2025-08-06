@@ -1,5 +1,5 @@
 
-#### 4. `docs/COST_OPTIMIZATION.md`
+#### `docs/COST_OPTIMIZATION.md`
 ```markdown
 # Cost Optimization Implementation
 

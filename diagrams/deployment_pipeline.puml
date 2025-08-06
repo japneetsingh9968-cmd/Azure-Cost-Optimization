@@ -1,0 +1,30 @@
+@startuml
+!theme azure
+
+rectangle CI {
+  :Code Commit;
+  :Build Artifacts;
+  :Unit Tests;
+  :Security Scan;
+}
+
+rectangle CD {
+  :Infra Deployment;
+  :Function Deployment;
+  :Smoke Tests;
+  if (Tests Pass?) then (yes)
+    :Canary Deployment (5%);
+    :Health Checks;
+    if (Healthy?) then (yes)
+      :Full Deployment;
+    else (no)
+      :Rollback;
+    endif
+  else (no)
+    :Rollback;
+  endif
+}
+
+CI --> CD
+
+@enduml

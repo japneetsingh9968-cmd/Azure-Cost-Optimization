@@ -1,5 +1,5 @@
 
-#### 3. `docs/MONITORING_AND_INTEGRITY.md`
+####  `docs/MONITORING_AND_INTEGRITY.md`
 ```markdown
 # Built-in Monitoring and Integrity Checks
 

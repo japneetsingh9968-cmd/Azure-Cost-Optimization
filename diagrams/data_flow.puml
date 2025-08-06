@@ -1,0 +1,28 @@
+@startuml
+!theme azure
+
+start
+:New Record Created;
+:Store in Cosmos DB (Hot);
+fork
+  :Serve Read Requests;
+fork again
+  :Monitor Age;
+if (Record > 90 days?) then (yes)
+  :Archive to Blob Storage;
+  :Delete from Cosmos;
+else (no)
+  :Keep in Cosmos;
+endif
+endfork
+:Handle Read Request;
+if (In Cosmos?) then (yes)
+  :Return from Cosmos;
+else (no)
+  :Retrieve from Blob Storage;
+  :Cache in CDN;
+  :Return Record;
+endif
+stop
+
+@enduml

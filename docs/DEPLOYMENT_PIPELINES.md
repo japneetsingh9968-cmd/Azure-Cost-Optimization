@@ -1,5 +1,5 @@
 
-#### 2. `docs/DEPLOYMENT_PIPELINES.md`
+####  `docs/DEPLOYMENT_PIPELINES.md`
 ```markdown
 # Automated Deployment Pipelines
 

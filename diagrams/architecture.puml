@@ -1,0 +1,27 @@
+
+### Diagram Files
+
+#### 1. `diagrams/architecture.puml`
+```plantuml
+@startuml
+!theme azure
+left to right direction
+
+component "API Gateway" as gateway
+component "Azure Functions" as func
+database "Cosmos DB (Hot)" as cosmos
+cloud "Blob Storage (Cold)" as blob
+component "CDN" as cdn
+component "Application Insights" as ai
+component "Azure Monitor" as monitor
+
+gateway --> func : HTTP Requests
+func --> cosmos : Read/Write
+func --> blob : Archive/Retrieve
+blob --> cdn : Caching
+cosmos --> func : Change Feed
+func --> ai : Telemetry
+ai --> monitor : Alerts
+monitor --> func : Auto-scale
+
+@enduml

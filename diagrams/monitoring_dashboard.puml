@@ -1,0 +1,30 @@
+@startuml
+!theme azure
+
+dashboard "Monitoring Dashboard" {
+
+  chart "Latency (ms)" as latency {
+    Hot Reads: 85
+    Cold Reads: 1200
+    P95: 2500
+  }
+  
+  chart "Throughput" as throughput {
+    Requests/sec: 120
+    Archivals/min: 85
+  }
+  
+  chart "Costs" as costs {
+    Cosmos: $185
+    Blob: $24
+    CDN: $15
+  }
+  
+  chart "Errors" as errors {
+    "4xx": 0.1
+    "5xx": 0.05
+    Archival Failures: 0.2
+  }
+}
+
+@enduml

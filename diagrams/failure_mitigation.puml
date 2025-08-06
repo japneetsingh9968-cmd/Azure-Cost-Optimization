@@ -1,0 +1,31 @@
+@startuml
+!theme azure
+
+title Failure Mitigation Scenarios
+
+rectangle "Blob Storage Outage" as outage {
+  :Primary Region Failure;
+  :Auto-detection <5s;
+  :Traffic Manager Failover;
+  :Serve from Secondary Region;
+  :Queue Failed Operations;
+  :Replay when Recovered;
+}
+
+rectangle "Data Corruption" as corrupt {
+  :Weekly Integrity Checks;
+  :Alert on Inconsistency;
+  :Restore from Backup;
+  :Re-sync from Change Feed;
+}
+
+rectangle "High Latency" as latency {
+  :Monitor P95 Latency;
+  if (Cold Reads > 3s?) then (yes)
+    :Scale CDN Nodes;
+    :Optimize Blob Index;
+    :Pre-warm Cache;
+  endif
+}
+
+@enduml
