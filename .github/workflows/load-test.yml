@@ -1,0 +1,12 @@
+name: Load Test
+on:
+  workflow_dispatch:
+jobs:
+  load-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Load Test
+        run: |
+          # Simulate 10,000 concurrent users (placeholder)
+          echo "Running load test..."
