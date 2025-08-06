@@ -1,0 +1,11 @@
+This is a placeholder for the architecture diagram referenced as data-flow.png in the README.md. Please export the PlantUML diagram from diagrams/architecture.puml or use a diagramming tool to generate the PNG and place it here.
+
+Diagram overview:
+- API Gateway and Unified Access Layer
+- Cosmos DB (Hot) for recent data
+- Blob Storage (Cold) for archived data
+- CDN for cold data acceleration
+- Cognitive Search for cold data queries
+- Azure Functions for archival and monitoring
+
+For a production diagram, use PlantUML or draw.io to convert the PlantUML source to PNG.
