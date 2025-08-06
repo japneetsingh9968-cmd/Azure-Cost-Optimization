@@ -1,0 +1,21 @@
+@startuml
+!theme azure
+left to right direction
+
+component "API Gateway" as gateway
+component "Azure Functions" as func
+database "Cosmos DB (Hot)" as cosmos
+cloud "Blob Storage (Cold)" as blob
+component "CDN" as cdn
+component "Cognitive Search" as search
+component "Application Insights" as ai
+
+gateway --> func : Read/Write
+func --> cosmos : Recent data
+func --> blob : Archive data
+blob --> cdn : Caching
+blob --> search : Indexing
+func --> ai : Monitoring
+cosmos --> func : Change Feed
+
+@enduml
